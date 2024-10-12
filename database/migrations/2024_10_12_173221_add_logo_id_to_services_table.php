@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->longText('description')->nullable();
-            $table->timestamps();
+        Schema::table('services', function (Blueprint $table) {
+            $table->foreignId('logo_id')->nullable()->constrained('logos')->onDelete('set null');
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('logo_id');
+        });
     }
 };

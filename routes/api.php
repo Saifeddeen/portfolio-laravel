@@ -26,3 +26,4 @@ Route::get('/socials', [\App\Http\Controllers\SocialAccountController::class, 'i
 Route::get('/services', [\App\Http\Controllers\ServiceController::class, 'index']);
 Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index']);
 Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'index']);
+Route::get('/projects/{id}', [\App\Http\Controllers\ProjectController::class, 'show']);

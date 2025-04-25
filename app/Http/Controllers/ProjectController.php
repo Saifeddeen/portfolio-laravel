@@ -43,4 +43,15 @@ class ProjectController extends Controller
 //        Response::download('/storage/images/accountant program analysis logo.jpg')
         return $data;
     }
+
+    public function show($id)
+    {
+        $project = Project::with('gallery')->findOrFail($id);
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $project
+        ], 200);
+    }
+
 }
